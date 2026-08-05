@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Asim Nizam — Résumé</title>
+<meta name="description" content="Résumé of Asim Nizam — backend engineer, founder of Sawari, Technical Lead at BTAB Group." />
+<meta name="robots" content="noindex" />
+<link rel="icon" type="image/png" href="favicon.png" />
+<!-- Fonts are vendored locally (assets/fonts/) rather than loaded from the Google
+     Fonts CDN: headless PDF export must not race a network fetch, or the export
+     silently falls back to system fonts. -->
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+/* ===================================================
+   Asim Nizam — Résumé (print source for resume.pdf)
+
+   This page is the source of truth for resume.pdf. Edit here, then run:
+
+     ./build-resume.sh
+
+   Must stay ONE page: content box is ~1054px tall at A4 with 9mm vertical margins.
+   =================================================== */
+:root{
+  --ink:#0E1726;
+  --ink-2:#26344A;
+  --muted:#4E5A70;
+  --paper:#ECEFF3;
+  --line:#D4DAE2;
+  --accent:#B4741C;
+
+  --display:'Space Grotesk', system-ui, sans-serif;
+  --sans:'IBM Plex Sans', system-ui, sans-serif;
+  --mono:'IBM Plex Mono', ui-monospace, monospace;
+}
+*{ box-sizing:border-box; }
+body{
+  margin:0;
+  background:var(--paper);
+  font-family:var(--sans);
+  color:var(--ink);
+  font-size:10pt;
+  line-height:1.32;
+  -webkit-font-smoothing:antialiased;
+}
+.sheet{
+  width:210mm;
+  min-height:297mm;
+  margin:24px auto;
+  padding:13mm 15mm;
+  background:#fff;
+  box-shadow:0 10px 40px rgba(14,23,38,.14);
+}
+a{ color:inherit; text-decoration:none; }
+
+/* ---------- header ---------- */
+.head{ border-bottom:2px solid var(--ink); padding-bottom:7px; margin-bottom:11px; }
+h1{
+  font-family:var(--display); font-weight:700;
+  font-size:19pt; letter-spacing:-0.02em; line-height:1;
+  margin:0 0 2px; text-transform:uppercase;
+}
+.role{
+  font-family:var(--mono); font-size:8.5pt; font-weight:500;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--accent);
+  margin:0 0 6px;
+}
+.contact{
+  font-family:var(--mono); font-size:8pt; color:var(--muted);
+  display:flex; flex-wrap:wrap; gap:4px 10px;
+}
+.contact span::after{ content:"•"; margin-left:10px; color:var(--line); }
+.contact span:last-child::after{ content:""; margin:0; }
+
+/* ---------- sections ---------- */
+section{ margin-top:11px; }
+h2{
+  font-family:var(--mono); font-size:8pt; font-weight:500;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--muted);
+  margin:0 0 5px; padding-bottom:3px; border-bottom:1px solid var(--line);
+}
+.summary{ margin:0; color:var(--ink-2); }
+
+/* ---------- entries ---------- */
+.entry{ margin-bottom:9px; break-inside:avoid; }
+.entry:last-child{ margin-bottom:0; }
+.entry-head{ display:flex; justify-content:space-between; align-items:baseline; gap:12px; }
+.entry-title{ font-family:var(--display); font-weight:700; font-size:10.5pt; letter-spacing:-0.01em; }
+.when{
+  font-family:var(--mono); font-size:8pt; color:var(--muted);
+  white-space:nowrap; letter-spacing:.02em;
+}
+.org{ font-size:9pt; color:var(--accent); font-weight:500; margin-bottom:3px; }
+ul{ margin:0; padding-left:14px; }
+li{ margin-bottom:2px; color:var(--ink-2); }
+li::marker{ color:var(--line); }
+
+/* ---------- projects ---------- */
+.proj{ margin-bottom:8px; break-inside:avoid; }
+.proj:last-child{ margin-bottom:0; }
+.proj-name{ font-family:var(--display); font-weight:700; font-size:10pt; }
+.proj p{ margin:2px 0 3px; color:var(--ink-2); }
+.stack{ font-family:var(--mono); font-size:7.5pt; color:var(--muted); }
+
+/* ---------- skills ---------- */
+.skills{ display:grid; grid-template-columns:auto 1fr; gap:5px 14px; }
+.skills dt{
+  font-family:var(--mono); font-size:8pt; font-weight:500;
+  text-transform:uppercase; letter-spacing:.06em; color:var(--muted);
+  white-space:nowrap; padding-top:1px;
+}
+.skills dd{ margin:0; color:var(--ink-2); }
+
+.todo{ color:#B4241C; font-family:var(--mono); font-size:8pt; }
+
+/* ---------- print ---------- */
+@page{ size:A4; margin:9mm 10mm; }
+@media print{
+  body{ background:#fff; font-size:8.4pt; }
+  .sheet{ width:auto; min-height:0; margin:0; padding:0; box-shadow:none; }
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header class="head">
+    <h1>Asim Nizam</h1>
+    <p class="role">Backend Engineer · Technical Lead &amp; Founder</p>
+    <div class="contact">
+      <span>Islamabad, Pakistan</span>
+      <span>+92 318 0315020</span>
+      <span><a href="mailto:asimnizam@icloud.com">asimnizam@icloud.com</a></span>
+      <span><a href="https://asimnz.dev">asimnz.dev</a></span>
+      <span><a href="https://linkedin.com/in/asim-nizam-77668995">linkedin.com/in/asim-nizam-77668995</a></span>
+      <span><a href="https://github.com/asimndev">github.com/asimndev</a></span>
+    </div>
+  </header>
+
+  <section>
+    <h2>Summary</h2>
+    <p class="summary">
+      Backend engineer shipping production Laravel systems since 2021 — REST APIs, relational data
+      models, and legacy modernization. Worked full-time as a developer throughout my Computer Science
+      degree (2021&ndash;2024), moving from frontend and CMS work into backend architecture and team
+      leadership. Now founder and lead engineer of Sawari, a ride-sharing platform, and Technical Lead
+      at BTAB Group.
+    </p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">Technical Lead</div>
+        <div class="when">2023 &ndash; Present</div>
+      </div>
+      <div class="org">BTAB Group — Australia (Remote)</div>
+      <ul>
+        <li>Lead a team of 2 engineers building enterprise ERP, business platforms, and marketplaces
+          for Australian and international stakeholders.</li>
+        <li>Design backend architecture and REST APIs, and manage deployments across concurrent client
+          projects.</li>
+        <li>Own engineering standards through code review and CI/CD pipelines; mentor junior engineers
+          and own technical decisions.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">Founder &amp; Lead Engineer</div>
+        <div class="when">2025 &ndash; Present</div>
+      </div>
+      <div class="org">Sawari — Ride-Sharing and Carpooling Platform</div>
+      <ul>
+        <li>Architected and built the full backend from concept to launch — Laravel REST APIs and the
+          commuter/ride-matching engine for a platform connecting commuters across Pakistan.</li>
+        <li>Designed the relational database and public, machine-readable APIs for AI chatbot and agent
+          discovery, letting third-party assistants query rides and routes directly.</li>
+        <li>Built the Android app backend and led branding, product strategy, and the technical roadmap.
+          Now serving 1000+ users and 600+ rides across Karachi.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">Senior Developer</div>
+        <div class="when">2022 &ndash; 2023</div>
+      </div>
+      <div class="org">Praetors Pvt Ltd</div>
+      <ul>
+        <li>Built SaaS platforms from scratch in Laravel, PHP, and React — authentication, role-based
+          access control, dashboards, reporting, payment gateways, and notification systems.</li>
+        <li>Designed backend architecture and normalized MySQL schemas; integrated multiple payment
+          gateways and third-party APIs.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">Frontend &amp; WordPress Developer</div>
+        <div class="when">2021 &ndash; 2022</div>
+      </div>
+      <div class="org">SAS Digisol</div>
+      <ul>
+        <li>Built responsive business websites for local and international clients — theme
+          customization, custom plugin development, and tailored CMS solutions.</li>
+        <li>Improved front-end performance and SEO across client sites.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+
+    <div class="proj">
+      <div class="proj-name">DigiMart — Multi-role Digital Marketplace</div>
+      <p>Buyer, seller, and admin roles with Stripe, Razorpay, and PayPal checkout, seller payouts,
+        product reviews, and a role-based admin panel. Automated seller KYC so onboarding no longer
+        depended on manual document review.</p>
+      <div class="stack">Laravel 11 · Tailwind · Alpine.js · MySQL · Spatie · github.com/asimndev/digimart-marketplace</div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-name">PishJoy — Marketplace Modernization</div>
+      <p>Migrated a legacy CodeIgniter marketplace to a modular Laravel architecture; added Redis
+        caching, Meilisearch search, and infinite-scroll product feeds. Integrated AI image validation
+        to screen seller-uploaded listings automatically and AI-assisted ranking for the search feed,
+        removing the need to moderate every upload by hand.</p>
+      <div class="stack">Laravel · CodeIgniter · Redis · Meilisearch · Horizon</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <dl class="skills">
+      <dt>Backend</dt>
+      <dd>PHP, Laravel, Core PHP, CodeIgniter, Node.js, Express.js, REST API design, PHPUnit, Pest</dd>
+
+      <dt>Frontend</dt>
+      <dd>React, JavaScript, HTML5, CSS3, Bootstrap, jQuery</dd>
+
+      <dt>Data</dt>
+      <dd>MySQL, PostgreSQL, Redis, Meilisearch, Laravel Horizon, Composer</dd>
+
+      <dt>DevOps &amp; Cloud</dt>
+      <dd>Git, Docker, GitHub Actions, DigitalOcean, Linux, Nginx</dd>
+
+      <dt>AI</dt>
+      <dd>Vision API / image validation, AI-assisted search ranking, LLM &amp; agent-facing API design</dd>
+
+      <dt>Integrations</dt>
+      <dd>Payment gateways, WhatsApp Business API, Google Maps, Firebase, OAuth, JWT</dd>
+
+      <dt>CMS</dt>
+      <dd>WordPress, Shopify</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="entry-head">
+        <div class="entry-title">B.Sc. in Computer Science</div>
+        <div class="when">2020 &ndash; 2024</div>
+      </div>
+      <div class="org">Iqra University</div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
