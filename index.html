@@ -244,19 +244,19 @@
       </div>
       <div class="timeline">
         <article class="job reveal">
+          <div class="job-when"><span class="now">2023 — Present</span></div>
+          <div>
+            <h3>Technical Lead</h3>
+            <div class="org">BTAB Group — Australia (Remote)</div>
+            <p>Lead a team of 2 engineers building enterprise ERP and business platforms for Australian and international clients — backend architecture, REST APIs, deployments, code review, CI/CD, and mentoring junior engineers.</p>
+          </div>
+        </article>
+        <article class="job reveal">
           <div class="job-when"><span class="now">2025 — Present</span></div>
           <div>
             <h3>Founder &amp; Lead Engineer</h3>
             <div class="org">Sawari — Ride-Sharing Platform</div>
             <p>Built and lead a ride-sharing platform from concept to launch. Own the backend architecture, product strategy, and technical roadmap end to end.</p>
-          </div>
-        </article>
-        <article class="job reveal">
-          <div class="job-when"><span class="now">2023 — Present</span></div>
-          <div>
-            <h3>Technical Lead</h3>
-            <div class="org">BTAB Group — Australia (Remote)</div>
-            <p>Lead a team building enterprise ERP and business platforms for Australian and international clients — backend architecture, REST APIs, deployments, code review, and mentoring junior engineers.</p>
           </div>
         </article>
         <article class="job reveal">
@@ -434,7 +434,15 @@
       <h2 class="reveal">Let's build something<br>that lasts<span class="amp">.</span></h2>
       <p class="contact-sub reveal">Have a system that needs building, scaling, or untangling? I'd like to hear about it.</p>
 
-      <form class="contact-form reveal" id="contactForm">
+      <form class="contact-form reveal" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+        <!-- Web3Forms. The access key is a public form identifier, not a secret —
+             it is meant to ship in client-side markup. -->
+        <input type="hidden" name="access_key" value="8d543a0e-026b-42c8-b9be-bc9395008610">
+        <input type="hidden" name="subject" value="New message from asimnz portfolio">
+        <input type="hidden" name="from_name" value="Portfolio contact form">
+        <!-- Honeypot: real people never fill this in; bots usually do. -->
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
         <div class="field">
           <label for="cf-name">Name</label>
           <input type="text" id="cf-name" name="name" placeholder="Your name" required>
@@ -448,6 +456,7 @@
           <textarea id="cf-message" name="message" placeholder="Tell me about your project..." rows="5" required></textarea>
         </div>
         <button type="submit" class="btn-submit">Send message <span class="arw" aria-hidden="true">↗</span></button>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
       </form>
 
       <div class="contact-actions reveal">

@@ -397,6 +397,16 @@ img{ max-width:100%; display:block; }
   width:auto; justify-self:start;
 }
 .contact-form .btn-submit:hover{ background:#f0aa3f; transform:translateY(-2px); }
+.contact-form .btn-submit:disabled{
+  opacity:.6; cursor:not-allowed; transform:none; background:var(--accent);
+}
+
+/* honeypot — off-screen rather than display:none, which some bots skip */
+.contact-form .hp{
+  position:absolute; left:-9999px; width:1px; height:1px;
+  opacity:0; pointer-events:none;
+}
+
 
 .contact-actions{ display:flex; flex-wrap:wrap; gap:14px; align-items:center; margin-top:34px; }
 .btn-mail{ background:var(--accent); color:#0E1726; border-color:var(--accent); font-size:15px; padding:15px 26px; }
@@ -415,8 +425,8 @@ img{ max-width:100%; display:block; }
 
 /* form feedback */
 .form-status{
-  grid-column:1 / -1;
-  font-family:var(--mono); font-size:13px;
+  grid-column:1 / -1; margin:0;
+  font-family:var(--mono); font-size:13px; line-height:1.5;
   padding:12px 16px; border-radius:2px;
   display:none;
 }

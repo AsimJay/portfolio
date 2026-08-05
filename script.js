@@ -54,21 +54,62 @@
     els.forEach(function(el){ io.observe(el); });
   }
 
-  // ---- Contact form (mailto fallback) ----
+  // ---- Contact form (Web3Forms, mailto as fallback) ----
   var form = document.getElementById('contactForm');
+  var status = document.getElementById('formStatus');
+
   if(form){
+    var btn = form.querySelector('.btn-submit');
+    var btnLabel = btn ? btn.innerHTML : '';
+
+    // 'success' / 'error' match the .form-status modifiers already in style.css —
+    // the base class is display:none, so an unrecognised name renders nothing.
+    function setStatus(msg, kind){
+      if(!status) return;
+      status.textContent = msg;
+      status.className = 'form-status' + (kind ? ' ' + kind : '');
+    }
+
+    // If the request never lands, the visitor still has a way through.
+    function mailtoFallback(name, email, message){
+      var subject = 'Portfolio Contact from ' + name;
+      var body = 'Name: ' + name + '\nEmail: ' + email + '\n\n' + message;
+      return 'mailto:asimnizam@icloud.com?subject=' +
+        encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    }
+
     form.addEventListener('submit', function(e){
       e.preventDefault();
+
       var name = form.querySelector('[name="name"]').value.trim();
       var email = form.querySelector('[name="email"]').value.trim();
       var message = form.querySelector('[name="message"]').value.trim();
-
       if(!name || !email || !message) return;
 
-      var subject = 'Portfolio Contact from ' + name;
-      var body = 'Name: ' + name + '\nEmail: ' + email + '\n\n' + message;
-      window.location.href = 'mailto:asimnizam@icloud.com?subject=' +
-        encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      if(btn){ btn.disabled = true; btn.innerHTML = 'Sending…'; }
+      setStatus('', '');
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+      })
+      .then(function(res){ return res.json().then(function(data){ return { ok: res.ok, data: data }; }); })
+      .then(function(r){
+        if(r.ok && r.data.success){
+          form.reset();
+          setStatus('Thanks — your message is on its way. I usually reply within a day or two.', 'success');
+        } else {
+          throw new Error((r.data && r.data.message) || 'Submission failed');
+        }
+      })
+      .catch(function(){
+        setStatus('Something went wrong sending that. Opening your email client instead — or reach me directly at asimnizam@icloud.com.', 'error');
+        window.location.href = mailtoFallback(name, email, message);
+      })
+      .finally(function(){
+        if(btn){ btn.disabled = false; btn.innerHTML = btnLabel; }
+      });
     });
   }
 })();
